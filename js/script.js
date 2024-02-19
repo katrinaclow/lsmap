@@ -1,26 +1,4 @@
 
-  // URL of the publicly accessible file in Google Drive
-const fileUrl = 'https://drive.google.com/uc?export=download&id=1L_MQUyLGuGfCthoAlB_pl2lHFr_0nxOi)';
-
-// Fetch the file using the Fetch API
-fetch(fileUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.blob(); // Read the response as a Blob
-  })
-  .then(blob => {
-    // Create a download link
-    const downloadLink = document.createElement('a');
-    downloadLink.href = URL.createObjectURL(blob);
-    downloadLink.download = 'jobData.geojson'; // Set desired filename
-    downloadLink.click(); // Trigger the download
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
-
 
 // set page opening map view to location
 var map = L.map("map").setView([46.45236041353664, -63.302893192172775], 9);
@@ -126,6 +104,7 @@ fetch("jobData.geojson")
         var complete = feature.properties.finalPlanSubmitted;
         var pinsSet = feature.properties.surveyMarkersSet;
         var fieldwork = feature.properties.initialFieldworkCompleted;
+
 
         // If the year layer doesn't exist, create it
         if (!yearLayers[year]) {
