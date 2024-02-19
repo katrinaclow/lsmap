@@ -1,21 +1,3 @@
-// // URL of the publicly accessible file in Google Drive
-// const fileUrl = 'https://drive.google.com/uc?export=download&id=1L_MQUyLGuGfCthoAlB_pl2lHFr_0nxOi';
-
-// // Fetch the file using the Fetch API
-// fetch(fileUrl)
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     return response.json(); // Assuming the file is JSON data
-//   })
-//   .then(data => {
-//     // Process the fetched data
-//     console.log(data);
-//   })
-//   .catch(error => {
-//     console.error('There was a problem with the fetch operation:', error);
-//   });
 
   // URL of the publicly accessible file in Google Drive
 const fileUrl = 'https://drive.google.com/uc?export=download&id=1L_MQUyLGuGfCthoAlB_pl2lHFr_0nxOi)';
@@ -38,61 +20,6 @@ fetch(fileUrl)
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
-
-
-
-// const fs = require('fs');
-// const path = require('path');
-// const { GoogleAuth } = require('google-auth-library');
-// const { google } = require('googleapis');
-
-// /**
-//  * Downloads a file from Google Drive to a specified location on the local file system.
-//  * @param {string} realFileId The file ID on Google Drive.
-//  * @param {string} destinationPath The destination path where the file should be saved.
-//  * @returns {Promise<void>} A Promise that resolves when the file is successfully downloaded and saved.
-//  */
-// async function downloadFile(realFileId, destinationPath) {
-//   try {
-//     // Authenticate with Google Drive API
-//     const auth = new GoogleAuth({
-//       scopes: 'https://www.googleapis.com/auth/drive',
-//     });
-//     const drive = google.drive({ version: 'v3', auth });
-
-//     // Download the file
-//     const response = await drive.files.get({
-//       fileId: realFileId,
-//       alt: 'media',
-//     }, { responseType: 'stream' });
-
-//     // Create a writable stream to save the file to the destination path
-//     const destStream = fs.createWriteStream(destinationPath);
-
-//     // Pipe the file content from the API response stream to the destination stream
-//     response.data.on('error', err => {
-//       throw err;
-//     }).pipe(destStream);
-
-//     // Wait for the download to finish
-//     await new Promise((resolve, reject) => {
-//       destStream.on('finish', resolve);
-//       destStream.on('error', reject);
-//     });
-
-//     console.log('File downloaded successfully to:', destinationPath);
-//   } catch (err) {
-//     console.error('Error downloading file:', err);
-//     throw err;
-//   }
-// }
-
-// // Example usage:
-// const fileId = '1L_MQUyLGuGfCthoAlB_pl2lHFr_0nxOi';
-// const destinationPath = '/Users/katrinaclow/jobData.geoJSON'; // Replace with your desired destination path
-// downloadFile(fileId, destinationPath)
-//   .then(() => console.log('Download completed.'))
-//   .catch(err => console.error('Download failed:', err));
 
 
 // set page opening map view to location
