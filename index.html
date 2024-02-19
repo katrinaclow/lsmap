@@ -9,10 +9,26 @@
   <body>
     <div class="center-container">
       <button onclick="redirectToMap()">Map</button>
+      <button onclick="downloadData()">Download Data</button> <!-- New button -->
     </div>
     <script>
       function redirectToMap() {
         window.location.href = "map.html";
+      }
+
+      function downloadData() {
+        const fileUrl = 'https://drive.google.com/uc?export=download&id=1L_MQUyLGuGfCthoAlB_pl2lHFr_0nxOi';
+        const fileName = 'jobData.geojson'; // Specify the desired file name
+        
+        // Create an anchor element
+        const anchor = document.createElement('a');
+        anchor.href = fileUrl;
+        anchor.setAttribute('download', fileName);
+        
+        // Simulate a click on the anchor element
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
       }
     </script>
   </body>
