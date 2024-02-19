@@ -1,7 +1,11 @@
-
-
 // set page opening map view to location
-var map = L.map("map").setView([46.45236041353664, -63.302893192172775], 9);
+var map = L.map('map', {
+  center: [46.45236041353664, -63.302893192172775],
+  zoom: 9,
+  dragging: true, // Enables dragging the map with mouse/touch
+  scrollWheelZoom: true // Enables zooming with the mouse wheel
+});
+
 
 // initialize control layers
 var controlLayers = L.control
@@ -105,8 +109,8 @@ fetch("jobData.geojson")
         var pinsSet = feature.properties.surveyMarkersSet;
         var fieldwork = feature.properties.initialFieldworkCompleted;
 
-
         // If the year layer doesn't exist, create it
+        
         if (!yearLayers[year]) {
           yearLayers[year] = L.layerGroup().addTo(map);
         }
